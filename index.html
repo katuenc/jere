@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>JERE | Cambio Seguro</title>
+    <style>
+        body { font-family: sans-serif; background: #001f3f; color: white; display: flex; justify-content: center; padding: 20px; }
+        .card { background: white; color: #333; padding: 25px; border-radius: 15px; width: 100%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: #28a745; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        #voucher { margin-top: 20px; padding: 15px; background: #f8f9fa; border: 2px dashed #28a745; display: none; text-align: center; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h2 style="text-align:center;">JERE VOUCHER</h2>
+    <input type="text" id="nombre" placeholder="Nombre Completo">
+    <input type="text" id="dni" placeholder="DNI / Pasaporte">
+    <input type="number" id="monto" placeholder="Monto ARS">
+    <button onclick="generar()">GENERAR CÓDIGO</button>
+    <div id="voucher">
+        <p>Tu código de cambio:</p>
+        <h1 id="codFinal"></h1>
+        <small>Presentá este código en caja.</small>
+    </div>
+</div>
+<script>
+    function generar() {
+        const cod = Math.random().toString(36).substring(2, 8).toUpperCase();
+        document.getElementById('codFinal').innerText = cod;
+        document.getElementById('voucher').style.display = 'block';
+    }
+</script>
+</body>
+</html>
